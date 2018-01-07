@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="800.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="textFieldbst" layoutX="32.0" layoutY="50.0" onAction="#searchBst" prefHeight="31.0" prefWidth="229.0" />
+      <ListView fx:id="listBst" layoutX="32.0" layoutY="87.0" prefHeight="601.0" prefWidth="229.0" />
+      <Button fx:id="buttonSearch" layoutX="285.0" layoutY="50.0" mnemonicParsing="false" onAction="#searchBst" prefHeight="31.0" prefWidth="134.0" text="Bst-Code suchen" />
+      <Label fx:id="labelBstCode" layoutX="32.0" layoutY="28.0" text="Bst-Code" />
+      <Button fx:id="buttonVia" layoutX="285.0" layoutY="90.0" mnemonicParsing="false" onAction="#addVia" prefHeight="31.0" prefWidth="134.0" text="Via hinzufügen" />
+      <Button fx:id="buttonHalte" layoutX="285.0" layoutY="130.0" mnemonicParsing="false" onAction="#addHalte" prefHeight="31.0" prefWidth="134.0" text="Halte hinzufügen" />
+      <ListView fx:id="listVia" layoutX="285.0" layoutY="173.0" prefHeight="513.0" prefWidth="200.0" />
+      <Button fx:id="buttonBstLöschen" layoutX="505.0" layoutY="173.0" mnemonicParsing="false" onAction="#deleteBst" text="Bst-Code löschen" />
+      <TextArea fx:id="textAreaHinweis" editable="false" layoutX="505.0" layoutY="217.0" prefHeight="470.0" prefWidth="278.0" wrapText="true" />
+      <Button fx:id="buttonSpeichern" layoutX="301.0" layoutY="695.0" mnemonicParsing="false" onAction="#exitWindow" text="Speichern &amp; Schließen" />
+   </children>
+</AnchorPane>

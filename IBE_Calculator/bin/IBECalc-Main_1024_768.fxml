@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPaneMain" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane fx:id="SplitPaneHorizontal" dividerPositions="0.45596868884540115" layoutX="22.0" prefHeight="768.0" prefWidth="1024.0" snapToPixel="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="AnchorPaneLeft" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane fx:id="AnchorPaneVertical" dividerPositions="0.21465968586387435" layoutX="68.0" layoutY="14.0" orientation="VERTICAL" prefHeight="728.0" prefWidth="703.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane fx:id="AnchorPaneVonBis" minHeight="0.0" minWidth="0.0" prefHeight="421.0" prefWidth="486.0" style="-fx-background-color: #FFFFFF;">
+                           <children>
+                              <TextField fx:id="DB640von" layoutX="23.0" layoutY="78.0" prefHeight="31.0" prefWidth="102.0" />
+                              <TextField fx:id="DB640bis" layoutX="175.0" layoutY="78.0" prefHeight="31.0" prefWidth="102.0" />
+                              <Button fx:id="kürzesteRoute" layoutX="300.0" layoutY="78.0" mnemonicParsing="false" onAction="#shortestPath" prefHeight="31.0" prefWidth="138.0" text="Route berechnen" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="78.0" />
+                              <Label layoutX="23.0" layoutY="58.0" text="VON Bst-Code">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="175.0" layoutY="58.0" text="BIS Bst-Code" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="BstAuswahlVon" layoutX="23.0" layoutY="117.0" mnemonicParsing="false" onAction="#setDB640Von" prefHeight="31.0" prefWidth="102.0" text="Bst-Auswahl" />
+                              <Button fx:id="BstAuswahlBis" layoutX="175.0" layoutY="117.0" mnemonicParsing="false" onAction="#setDB640Bis" prefHeight="31.0" prefWidth="102.0" text="Bst-Auswahl" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="AnchorPaneTable" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="routeTable" prefHeight="518.0" prefWidth="701.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="tableStation" maxWidth="300.0" prefWidth="70.0" text="Bst" />
+                                    <TableColumn fx:id="tableAnmerkung" maxWidth="500.0" prefWidth="154.0" text="Station" />
+                                  <TableColumn fx:id="tableKm" maxWidth="299.0" prefWidth="50.0" text="km" />
+                                    <TableColumn fx:id="tableAchse" maxWidth="500.0" prefWidth="167.0" text="Achse" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="AnchorPaneRight" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <Button fx:id="excelExport" layoutX="304.0" layoutY="706.0" mnemonicParsing="false" onAction="#exportToExcel" prefHeight="31.0" prefWidth="119.0" text="Excel Export" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="294.0" />
+                  <Button fx:id="refreshButton" layoutX="230.0" layoutY="668.0" mnemonicParsing="false" onAction="#refreshIBE" prefHeight="31.0" prefWidth="119.0" text="Refresh" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="154.0" />
+                  <TextField fx:id="textFieldEntgeldGes" editable="false" layoutX="430.0" layoutY="828.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #86c67c; -fx-opacity: 0.8;" AnchorPane.bottomAnchor="29.0" AnchorPane.rightAnchor="33.0" />
+                  <TextField fx:id="textFieldHalte" editable="false" layoutX="435.0" layoutY="541.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #ccffcc; -fx-opacity: 1.0;" AnchorPane.bottomAnchor="194.0" AnchorPane.rightAnchor="33.0" />
+                  <TextField fx:id="textFieldGBTKM" editable="false" layoutX="436.0" layoutY="471.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #ccffcc; -fx-opacity: 1.0;" AnchorPane.bottomAnchor="264.0" AnchorPane.rightAnchor="32.0" />
+                  <TextField fx:id="textFieldTfzFak" editable="false" layoutX="436.0" layoutY="306.0" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #ccffcc; -fx-opacity: 1.0;" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="305.0" />
+                  <TextField fx:id="textFieldZugkm" editable="false" layoutX="436.0" layoutY="402.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: #ccffcc; -fx-opacity: 1.0;" AnchorPane.bottomAnchor="333.0" AnchorPane.rightAnchor="32.0" />
+                  <TextField fx:id="textFieldZuggew" layoutX="14.0" layoutY="471.0" onAction="#checkGew" prefHeight="31.0" prefWidth="107.0" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="14.0" />
+                  <TextField fx:id="textFieldZugnr" layoutX="14.0" layoutY="175.0" prefHeight="31.0" prefWidth="107.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="175.0" />
+                  <TextField fx:id="textFieldKm" editable="false" layoutX="328.0" layoutY="305.0" prefHeight="31.0" prefWidth="85.0" style="-fx-background-color: c0d9d9; -fx-opacity: 1.0;" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="305.0" />
+                  <Label fx:id="labelKm" layoutX="331.0" layoutY="285.0" text="Kilometer" AnchorPane.rightAnchor="161.0" AnchorPane.topAnchor="285.0" />
+                  <Label fx:id="labelZugnr" layoutX="14.0" layoutY="380.0" text="Zugnummer" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="155.0" />
+                  <Label fx:id="labelZugkm" layoutX="436.0" layoutY="383.0" prefHeight="21.0" prefWidth="82.0" text="IBE Zug-km" AnchorPane.bottomAnchor="362.0" AnchorPane.rightAnchor="35.0" />
+                  <Label fx:id="labelTfzFak" layoutX="432.0" layoutY="285.0" text="TFZ-Faktor" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="285.0" />
+                  <Label fx:id="labelTfzKat" layoutX="142.0" layoutY="285.0" text="TFZ-Kategorie" AnchorPane.leftAnchor="142.0" AnchorPane.topAnchor="285.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelTfz" layoutX="18.0" layoutY="285.0" text="Triebfahrzeug" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="285.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelGBTKM" layoutX="437.0" layoutY="450.0" text="IBE GBTKM" AnchorPane.bottomAnchor="295.0" AnchorPane.rightAnchor="41.0" />
+                  <Label fx:id="labelHalte" layoutX="437.0" layoutY="520.0" prefHeight="21.0" prefWidth="74.0" text="IBE Halte" AnchorPane.bottomAnchor="225.0" AnchorPane.rightAnchor="42.0" />
+                  <Label fx:id="labelEntgeldGes" layoutX="434.0" layoutY="685.0" text="IBE Gesamt" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="43.0" />
+                  <Label fx:id="labelVerkehrssart" layoutX="13.0" layoutY="520.0" text="Verkehrsart" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="13.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelZugklasse" layoutX="13.0" layoutY="590.0" text="Zugklasse" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="215.0" />
+                  <Label fx:id="labelZuggew" layoutX="14.0" layoutY="450.0" prefHeight="21.0" prefWidth="107.0" text="Gew (inkl. Tfz)" AnchorPane.bottomAnchor="295.0" AnchorPane.leftAnchor="14.0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="viaHinzu" layoutX="13.0" layoutY="74.0" mnemonicParsing="false" onAction="#addVia" prefHeight="31.0" prefWidth="168.0" text="Bst-Codes hinzufügen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="74.0" />
+                  <Button fx:id="ButtoncalculateIBE" layoutX="14.0" layoutY="838.0" mnemonicParsing="false" onAction="#calculateIBE" prefHeight="31.0" prefWidth="119.0" text="IBE berechnen" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="14.0" />
+                  <ChoiceBox fx:id="dropDownTfzKat" layoutX="142.0" layoutY="305.0" prefHeight="31.0" prefWidth="107.0" AnchorPane.leftAnchor="142.0" AnchorPane.topAnchor="305.0" />
+                  <Label fx:id="selectedFahrplan" layoutX="363.0" layoutY="72.0" prefHeight="21.0" prefWidth="187.0" text="Fahrplan:" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="72.0">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="selectedVersion" layoutX="363.0" layoutY="112.0" prefHeight="21.0" prefWidth="187.0" text="Version:" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="112.0">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="meldungen" editable="false" layoutX="130.0" layoutY="382.0" prefHeight="297.0" prefWidth="294.0" promptText="Meldungen:" style="-fx-font-weight: bold;" wrapText="true" AnchorPane.bottomAnchor="87.0" AnchorPane.rightAnchor="129.0" />
+                  <ComboBox fx:id="dropDownTfz" layoutX="14.0" layoutY="305.0" onAction="#selectTfzParam" prefHeight="31.0" prefWidth="107.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="305.0" />
+                  <TextField fx:id="anzahlTfz" layoutX="14.0" layoutY="404.0" onAction="#checkGew" prefHeight="31.0" prefWidth="107.0" text="1" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="14.0" />
+                  <Label fx:id="labelAnzTfz" layoutX="13.0" layoutY="383.0" text="Anzahl d. Tfz" AnchorPane.bottomAnchor="362.0" AnchorPane.leftAnchor="13.0" />
+                  <ChoiceBox fx:id="verkehrsart" layoutX="14.0" layoutY="541.0" prefHeight="31.0" prefWidth="107.0" AnchorPane.bottomAnchor="194.0" AnchorPane.leftAnchor="14.0" />
+                  <ComboBox fx:id="dropDownZugklasse" layoutX="14.0" layoutY="236.0" prefHeight="31.0" prefWidth="107.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="236.0" />
+                  <ListView fx:id="listVias" layoutX="195.0" layoutY="76.0" prefHeight="160.0" prefWidth="157.0" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="74.0" />
+                  <Label fx:id="labelVias" layoutX="196.0" layoutY="56.0" text="Vias und Halte" AnchorPane.leftAnchor="196.0" AnchorPane.topAnchor="54.0" />
+                  <Button fx:id="viaBearbeiten" layoutX="13.0" layoutY="114.0" mnemonicParsing="false" onAction="#configureVia" prefHeight="31.0" prefWidth="168.0" text="Bst-Codes bearbeiten" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="114.0" />
+                  <ImageView fx:id="logo" fitHeight="108.0" fitWidth="168.0" layoutX="364.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="155.0">
+                     <image>
+                        <Image url="@oebb-infra_logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <MenuBar fx:id="menuBar" layoutY="1.0" prefHeight="31.0" prefWidth="1326.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+        <menus>
+          <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="menuItemSave" mnemonicParsing="false" onAction="#exportToExcel" text="Save">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+                  <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#closeProgram" text="Close">
+                     <accelerator>
+                        <KeyCodeCombination alt="DOWN" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
+            </items>
+          </Menu>
+            <Menu fx:id="menuFahrplanper" mnemonicParsing="false" text="Fahrplanperiode">
+              <items>
+                  <CheckMenuItem fx:id="menuItemFahrplan2017" mnemonicParsing="false" onAction="#switchToFahrplan2017" text="2017" />
+                  <CheckMenuItem fx:id="menuItemFahrplan2018V1" mnemonicParsing="false" onAction="#switchToFahrplan2018V1" text="2018 V1" />
+                  <CheckMenuItem fx:id="menuItemFahrplan2018V2" mnemonicParsing="false" onAction="#switchToFahrplan2018V2" text="2018 V2" />
+              </items>
+            </Menu>
+          <Menu fx:id="menuHilfe" mnemonicParsing="false" text="Hilfe">
+            <items>
+                  <MenuItem fx:id="menuItemTut" mnemonicParsing="false" onAction="#openTut" text="Tutorial">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="T" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+              <MenuItem fx:id="menuItemAbout" mnemonicParsing="false" onAction="#openAbout" text="About" />
+            </items>
+          </Menu>
+            <Menu fx:id="menuAuflösung" mnemonicParsing="false" text="Auflösung">
+              <items>
+                  <CheckMenuItem fx:id="menuItemAufl1" mnemonicParsing="false" onAction="#changeAufl1" text="1024x768" />
+                  <CheckMenuItem fx:id="menuItemAufl2" mnemonicParsing="false" onAction="#changeAufl2" text="1800x900" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
