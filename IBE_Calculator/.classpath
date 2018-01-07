@@ -3,15 +3,15 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="res"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="dom4j-2.0.1.jar"/>
-	<classpathentry kind="lib" path="jfr.jar"/>
-	<classpathentry kind="lib" path="jfxrt.jar"/>
-	<classpathentry kind="lib" path="jgrapht-ext-1.0.1-uber.jar"/>
-	<classpathentry kind="lib" path="jxl.jar"/>
-	<classpathentry kind="lib" path="poi-3.9.jar"/>
-	<classpathentry kind="lib" path="poi-ooxml-3.9.jar"/>
-	<classpathentry kind="lib" path="poi-ooxml-schemas-3.9.jar"/>
-	<classpathentry kind="lib" path="rt.jar"/>
-	<classpathentry kind="lib" path="xmlbeans.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/dom4j-2.0.1.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/jfr.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/jfxrt.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/jgrapht-ext-1.0.1-uber.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/jxl.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/poi-3.9.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/rt.jar"/>
+	<classpathentry kind="lib" path="LibsAndInfo/xmlbeans.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
